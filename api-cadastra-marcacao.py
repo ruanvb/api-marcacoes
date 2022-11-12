@@ -4,11 +4,15 @@
     # - localhost/marcacao
 # 4. Recursos - registro da marcação do ponto
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 import pika
 
 app = Flask(__name__)
-    
+
+@app.route('/')
+def pagina_inicial():
+    return render_template('index.html')
+
 @app.route('/marcacao', methods=['POST'])
 def inlcuir_marcacao():
     nova_marcacao = request.get_json()

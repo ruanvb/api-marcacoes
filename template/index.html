@@ -77,8 +77,9 @@
                             "includedAt":"${dataFormat} ${horaFormat}", 
                             "employeeId": 1, 
                             "employerId": 1}`
-                        });
-                        console.log('Completed!', response);
+                        }).then(response => response.json);
+
+                        console.log(response);
 
                         var vmesDescricao = "";
         
@@ -97,6 +98,8 @@
 
                         dataFormat = vdia + " de " + vMesDescricao + " de " + vano;
                         horaFormat = vhora + ":" + vminuto + ":" + vsegundo;
+
+                        
 
                         swal('Marcação realizada com sucesso!', `${dataFormat} ${horaFormat}`, 'success');
                     } catch(err) {

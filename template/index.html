@@ -67,16 +67,15 @@
                         method: 'post',
                         headers: {
                             'Content-Type': 'application/json',
-                            'Access-Control-Allow-Origin': '*',
+                            'Access-Control-Allow-Origin': 'https://api-marcacao-ponto.herokuapp.com',
                             'Accept': 'application/json',
                             'Access-Control-Allow-Methods': 'POST',
                             'Access-Control-Allow-Headers': 'Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization',
                         },
-                        body: {
-                            "includedAt": includedAt,
-                            "employeeId": 123, 
-                            "employerId": 153
-                        }
+                        body: `{
+                            "includedAt":"2021-03-15 15:10:00", 
+                            "employeeId": 1223, 
+                            "employerId": 153}`
                         });
                         console.log('Completed!', response);
                     } catch(err) {

@@ -41,7 +41,27 @@
             </style>
             <script type="text/javascript">
                 async function realizaMarcacao(){
-       
+                    var momentoAtual = new Date();
+			
+                    var vhora = momentoAtual.getHours();
+                    var vminuto = momentoAtual.getMinutes();
+                    var vsegundo = momentoAtual.getSeconds();
+
+                    var vdia = momentoAtual.getDate();
+                    var vmes = momentoAtual.getMonth() + 1;
+                    var vano = momentoAtual.getFullYear();
+
+                    if (vdia < 10){ vdia = "0" + vdia;}
+                    if (vmes < 10){ vmes = "0" + vmes;}
+                    if (vhora < 10){ vhora = "0" + vhora;}
+                    if (vminuto < 10){ vminuto = "0" + vminuto;}
+                    if (vsegundo < 10){ vsegundo = "0" + vsegundo;}
+
+                    dataFormat = vano + "-" + vmes + "-" + vdia;
+			        horaFormat = vhora + ":" + vminuto + ":" + vsegundo;
+
+                    var includedAt = dataFormat + " " + horaFormat;
+
                     try {     
                         const response = await fetch('https://api-marcacao-ponto.herokuapp.com/marcacao', {
                         method: 'post',
@@ -52,7 +72,11 @@
                             'Access-Control-Allow-Methods': 'POST',
                             'Access-Control-Allow-Headers': 'Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization',
                         },
-                        body: {}
+                        body: {
+                            "includedAt": includedAt,
+                            "employeeId": 123, 
+                            "employerId": 153
+                        }
                         });
                         console.log('Completed!', response);
                     } catch(err) {

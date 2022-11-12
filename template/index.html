@@ -77,11 +77,11 @@
                             "includedAt":"${dataFormat} ${horaFormat}", 
                             "employeeId": 1, 
                             "employerId": 1}`
-                        }).then(response => response.text());
+                        }).then(response => response.json());
                         
+                        var retorno = response['message'];
 
-
-                        console.log(response);
+                        console.log(retorno);
 
                         var vmesDescricao = "";
         

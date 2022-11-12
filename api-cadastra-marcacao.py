@@ -32,6 +32,6 @@ def inlcuir_marcacao():
 
     return jsonify(retorno)
 
-app.run()
+app.run(host='0.0.0.0')
 
     

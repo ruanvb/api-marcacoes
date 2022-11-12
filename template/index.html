@@ -73,9 +73,9 @@
                             'Access-Control-Allow-Headers': 'Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization',
                         },
                         body: `{
-                            "includedAt":"2021-03-15 15:10:00", 
-                            "employeeId": 1223, 
-                            "employerId": 153}`
+                            "includedAt":"$dataFormat $horaFormat", 
+                            "employeeId": 1, 
+                            "employerId": 1}`
                         });
                         console.log('Completed!', response);
                     } catch(err) {

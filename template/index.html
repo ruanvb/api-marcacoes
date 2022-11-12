@@ -2,6 +2,7 @@
 	<HEAD>
         <TITLE>Marcação de ponto Web</TITLE>
 		<script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 		<script type="text/javascript">
 			jQuery(window).load(function($){
 				atualizaRelogio();
@@ -78,8 +79,10 @@
                             "employerId": 1}`
                         });
                         console.log('Completed!', response);
+                        swal(`Marcação realizada com sucesso em ${dataFormat} ${horaFormat}`, 'success');
                     } catch(err) {
                         console.error(`Error: ${err}`);
+                        swal(`Erro ocorrido: ${err}`, 'error');
                     }
                 };
             </script>

@@ -1,1 +1,1 @@
-web: python api-cadastra-marcacao.py
+web: gunicorn -t 150 api_cadastra_marcacao:app --bind 0.0.0.0:${PORT}

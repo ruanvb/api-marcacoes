@@ -7,7 +7,7 @@
 from flask import Flask, jsonify, request, render_template
 import pika
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='template')
 
 @app.route('/')
 def pagina_inicial():

@@ -2,6 +2,7 @@
 
 from flask import Flask, jsonify, request, render_template
 import pika
+from config import rabbitmq_server
 
 app = Flask(__name__, template_folder='template')
 
@@ -13,10 +14,10 @@ def pagina_inicial():
 def inlcuir_marcacao():
     nova_marcacao = request.get_json()
     
-    parametros = pika.URLParameters('amqps://qsvvrqtm:XCvydaLcdvhxgwOUKjXAfviC3G30nK8f@woodpecker.rmq.cloudamqp.com/qsvvrqtm')
+    parametros = pika.URLParameters(rabbitmq_server["url_connection"])
     connection = pika.BlockingConnection(parametros)
     channel = connection.channel()
-    channel.queue_declare(queue='marcacao-ponto', durable=True)
+    channel.queue_declare(queue=rabbitmq_server["queue"], durable=True)
     channel.confirm_delivery()
     channel.basic_publish(exchange='',
                         routing_key='marcacao-ponto',

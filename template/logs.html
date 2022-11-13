@@ -43,10 +43,8 @@
 	</HEAD>
 	<BODY style="padding: 15px; border: 1px solid #ccc; border-radius: 0!important;">
     <h1>Logs RabbitMQ</h1>
-    <table>
-        <tbody id="container">
-
-        </tbody>
+    <table id="#table">
+        
     </table>
 	</BODY>
 	<script>
@@ -55,22 +53,20 @@
             try {     
                 const response = await fetch('https://api-marcacao-ponto.herokuapp.com/CarregaLogRabbit', {
                 method: 'get'}).then(response => response.json());
-                console.log(response)
+                console.log(response);
                 
-                var container = document.querySelector("#container");
-                var tr = document.querySelector("#container tr");
-                container.removeChild(tr)
+                $('#table').remove();
 
                 var html = "<tr>";
                 for(var i=0;i< response.length; i++){
                     html +="<td>Payload: " + response[i]?.body[0].includedAt + "</td>";
                     html +="<td>Resultado: " + response[i]?.result + "</td>";
                     html +="</tr>";
-                    $('table tbody').append(html);
+                    $('table').append(html);
                 }
             } catch(err) {
                 console.error(`Error: ${err}`);
-                swal(`Erro ocorrido: ${err}`, 'error');
+                swal(`Erro ocorrido: ${err}`, '', 'error');
             }
 
             

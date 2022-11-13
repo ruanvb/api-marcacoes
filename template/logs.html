@@ -43,10 +43,7 @@
 	</HEAD>
 	<BODY style="padding: 15px; border: 1px solid #ccc; border-radius: 0!important;">
     <h1>Logs RabbitMQ</h1>
-    <table>
-        <tbody id="table">
-
-        </tbody>
+    <table id="table">
     </table>
 	</BODY>
 	<script>
@@ -69,7 +66,7 @@
                 for(var i = 0; i < tableLength; i++){
                     table.deleteRow(i);
                 }
-                
+
                 var html = "<tr>";
                 for(var i=0;i< response.length; i++){
                     html +="<td>Payload: " + response[i]?.body[0].includedAt + "</td>";

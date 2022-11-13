@@ -8,6 +8,8 @@ Atualmente a API está hospedada em um servidor gratuito.
 
 É possível acessar a página inicial através da URL https://api-marcacao-ponto.herokuapp.com/.
 
+O arquivo config.py carrega as configurações para a execução.
+
 ## EndPoints disponíveis
 * ./ - Marcação de Ponto Web
 * ./marcacao - POST - Cadastra marcacação na fila do RabbitMQ

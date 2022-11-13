@@ -53,12 +53,15 @@
             try {     
                 const response = await fetch('https://api-marcacao-ponto.herokuapp.com/CarregaLogRabbit', {
                 method: 'get'}).then(response => response.json());
-                console.log(response);
+                //console.log(response);
                 
                 var index, table = document.getElementById('table');
 
                 var responseLength = response.length;
                 var tableLength = table.rows.length;
+
+                console.log(responseLength)
+                console.log(tableLength)
 
                 if(responseLength != tableLength){
                     for(var i = 0; i < table.rows.length; i++){

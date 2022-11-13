@@ -14,6 +14,10 @@ def pagina_inicial():
 def inlcuir_marcacao():
     nova_marcacao = request.get_json()
 
+    if nova_marcacao["includedAt"] == 'null':
+        retorno = [{'message': 'Erro: a data da marcação ''includedAt'' não foi informada.'}]
+        return jsonify(retorno), 500
+
     parametros = pika.URLParameters(rabbitmq_server["url_connection"])
     connection = pika.BlockingConnection(parametros)
     channel = connection.channel()

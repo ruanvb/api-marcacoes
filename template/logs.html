@@ -43,8 +43,10 @@
 	</HEAD>
 	<BODY style="padding: 15px; border: 1px solid #ccc; border-radius: 0!important;">
     <h1>Logs RabbitMQ</h1>
-    <table id="table">
+    <table>
+        <tbody id="table">
 
+        </tbody>
     </table>
 	</BODY>
 	<script>
@@ -55,19 +57,19 @@
                 method: 'get'}).then(response => response.json());
                 //console.log(response);
                 
-                var index, table = document.getElementById('table');
+                var table = document.getElementById('table');
 
                 var responseLength = response.length;
                 var tableLength = table.rows.length;
 
                 console.log('Linhas response: ' + responseLength)
                 console.log('Linhas table' + tableLength)
+
                 if(responseLength > 0){
                     if((responseLength != tableLength) & (responseLength > tableLength)){
-                        for(var i = 0; i < table.rows.length; i++){
+                        for(var i = 0; i < tableLength; i++){
                             table.deleteRow(i);
                         }
-
                         var html = "<tr>";
                         for(var i=0;i< response.length; i++){
                             html +="<td>Payload: " + response[i]?.body[0].includedAt + "</td>";

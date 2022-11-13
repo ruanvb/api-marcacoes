@@ -102,7 +102,7 @@
                                 swal('Marcação realizada com sucesso!', `${dataFormat} ${horaFormat}`, 'success');
                                 
                             } else {
-                                swal(response[0].message, 'error');
+                                swal(response?.[0]?.message, 'error');
                             }
                         });
                     } catch(err) {

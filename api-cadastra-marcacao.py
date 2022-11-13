@@ -7,28 +7,10 @@ from config import rabbitmq_server
 #utilizado Flask
 app = Flask(__name__, template_folder='template')
 
-logs = []
-
 #criada rota para renderizar a página de marcação de ponto web
 @app.route('/')
 def pagina_inicial():
     return render_template('index.html')
-
-@app.route('/logs')
-def pagina_logs():
-    return render_template('logs.html')
-
-@app.route('/CarregaLogRabbit', methods=['GET'])
-def carregar_log():
-    return jsonify(logs)
-
-@app.route('/cadastraLogRabbit', methods=['POST'])
-def incluir_log():
-    novo_log = request.get_json()
-    logs.append(novo_log)
-
-    return jsonify(logs)
-
 
 #criada rota para enviar mensagem ao rabbit
 @app.route('/marcacao', methods=['POST'])

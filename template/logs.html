@@ -44,7 +44,9 @@
 	<BODY style="padding: 15px; border: 1px solid #ccc; border-radius: 0!important;">
     <h1>Logs RabbitMQ</h1>
     <table id="#table">
-        <tr></tr>
+        <tbody>
+            <tr></tr>
+        </tbody>
     </table>
 	</BODY>
 	<script>
@@ -56,7 +58,9 @@
                 console.log(response);
                 
                 var table = document.querySelector("#table");
-                var tr = document.querySelector("#table tr");                
+                var tbody = document.querySelector("#table tbody");    
+                
+                table.removeChild(tbody);
 
                 var html = "<tr>";
                 for(var i=0;i< response.length; i++){

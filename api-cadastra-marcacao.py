@@ -8,6 +8,7 @@ from config import rabbitmq_server
 app = Flask(__name__, template_folder='template')
 
 logs = []
+
 #criada rota para renderizar a página de marcação de ponto web
 @app.route('/')
 def pagina_inicial():
@@ -23,7 +24,7 @@ def carregar_log():
 
 @app.route('/cadastraLogRabbit', methods=['POST'])
 def incluir_log():
-    novo_log = request.getJson()
+    novo_log = request.get_json()
     logs.append(novo_log)
 
     return jsonify(logs)

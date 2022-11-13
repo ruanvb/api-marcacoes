@@ -102,6 +102,7 @@
                                 swal('Marcação realizada com sucesso!', `${dataFormat} ${horaFormat}`, 'success');
                                 
                             } else {
+                                console.log(response.json());
                                 swal(response?.[0]?.message, 'error');
                             }
                         });

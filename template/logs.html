@@ -57,18 +57,22 @@
                 
                 var index, table = document.getElementById('table');
 
-                for(var i = 0; i < table.rows.length; i++){
-                    table.deleteRow(i);
-                }
+                var responseLength = response.length;
+                var tableLength = table.rows.length;
 
-                var html = "<tr>";
-                for(var i=0;i< response.length; i++){
-                    html +="<td>Payload: " + response[i]?.body[0].includedAt + "</td>";
-                    html +="<td>Resultado: " + response[i]?.result + "</td>";
-                    html +="</tr>";
-                    $('table').append(html);
-                }
+                if(responseLength != tableLength){
+                    for(var i = 0; i < table.rows.length; i++){
+                        table.deleteRow(i);
+                    }
 
+                    var html = "<tr>";
+                    for(var i=0;i< response.length; i++){
+                        html +="<td>Payload: " + response[i]?.body[0].includedAt + "</td>";
+                        html +="<td>Resultado: " + response[i]?.result + "</td>";
+                        html +="</tr>";
+                        $('table').append(html);
+                    }
+                }  
 
             } catch(err) {
                 console.error(`Error: ${err}`);

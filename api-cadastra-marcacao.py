@@ -14,6 +14,10 @@ def pagina_inicial():
 def inlcuir_marcacao():
     nova_marcacao = request.get_json()
     
+    print(nova_marcacao["includedAt"])
+    print(nova_marcacao["employeeId"])
+    print(nova_marcacao["employerId"])
+
     parametros = pika.URLParameters(rabbitmq_server["url_connection"])
     connection = pika.BlockingConnection(parametros)
     channel = connection.channel()
@@ -28,7 +32,7 @@ def inlcuir_marcacao():
 
     retorno = [
         {
-            'message': 'Marcação incluída com sucesso!'
+            'message': 'success'
         }
     ]
 

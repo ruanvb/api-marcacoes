@@ -1,3 +1,4 @@
+#arquivo de configurações
 APPNAME = "api-cadastra-marcacao"
 
 rabbitmq_server = {

@@ -44,9 +44,7 @@
 	<BODY style="padding: 15px; border: 1px solid #ccc; border-radius: 0!important;">
     <h1>Logs RabbitMQ</h1>
     <table id="table">
-        <tbody">
-            <tr></tr>
-        </tbody>
+
     </table>
 	</BODY>
 	<script>
@@ -57,17 +55,19 @@
                 method: 'get'}).then(response => response.json());
                 console.log(response);
                 
-                $('#table').remove();
+                var index, table = document.getElementById('table');
 
-                var html = "<table><tr>";
+                for(var i = 0; i < table.rows.length; i++){
+                    table.deleteRow(i);
+                }
+
+                var html = "<tr>";
                 for(var i=0;i< response.length; i++){
                     html +="<td>Payload: " + response[i]?.body[0].includedAt + "</td>";
                     html +="<td>Resultado: " + response[i]?.result + "</td>";
                     html +="</tr>";
-                    
+                    $('table').append(html);
                 }
-                html += "</table>";
-                $('body').append(html);
 
 
             } catch(err) {

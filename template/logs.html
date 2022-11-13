@@ -44,7 +44,7 @@
 	<BODY style="padding: 15px; border: 1px solid #ccc; border-radius: 0!important;">
     <h1>Logs RabbitMQ</h1>
     <table id="#table">
-        
+        <tr></tr>
     </table>
 	</BODY>
 	<script>
@@ -56,9 +56,7 @@
                 console.log(response);
                 
                 var table = document.querySelector("#table");
-                var tr = document.querySelector("#table tr");
-
-                table.removeChild(tr);
+                var tr = document.querySelector("#table tr");                
 
                 var html = "<tr>";
                 for(var i=0;i< response.length; i++){
@@ -67,6 +65,8 @@
                     html +="</tr>";
                     $('table').append(html);
                 }
+
+
             } catch(err) {
                 console.error(`Error: ${err}`);
                 swal(`Erro ocorrido: ${err}`, '', 'error');

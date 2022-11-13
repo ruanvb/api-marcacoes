@@ -94,8 +94,10 @@
                         if(vmes = 11){vMesDescricao = "Novembro";}
                         if(vmes = 12){vMesDescricao = "Dezembro";}
 
-                        var errorResponse = response['message'];
-                        console.error(response);
+                        var responseJson = response.json();
+
+
+                        console.error(responseJson['message']);
 
                         if(errorResponse != null){
                             swal(response['message'], 'error');

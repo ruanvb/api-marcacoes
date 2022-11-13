@@ -94,10 +94,15 @@
                         if(vmes = 11){vMesDescricao = "Novembro";}
                         if(vmes = 12){vMesDescricao = "Dezembro";}
 
-                        dataFormat = vdia + " de " + vMesDescricao + " de " + vano;
-                        horaFormat = vhora + ":" + vminuto + ":" + vsegundo;
+                        var errorResponse = response['message'];
+                        if(errorResponse != null){
+                            swal(response['message'], 'error');
+                        } else {
+                            dataFormat = vdia + " de " + vMesDescricao + " de " + vano;
+                            horaFormat = vhora + ":" + vminuto + ":" + vsegundo;
+                            swal('Marcação realizada com sucesso!', `${dataFormat} ${horaFormat}`, 'success');
+                        }
 
-                        swal('Marcação realizada com sucesso!', `${dataFormat} ${horaFormat}`, 'success');
                     } catch(err) {
                         console.error(`Error: ${err}`);
                         swal(`Erro ocorrido: ${err}`, 'error');

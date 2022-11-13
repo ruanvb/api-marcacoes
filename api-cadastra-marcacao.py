@@ -14,13 +14,13 @@ def pagina_inicial():
 def inlcuir_marcacao():
     nova_marcacao = request.get_json()
 
-    if nova_marcacao["includedAt"] == 'null':
+    if nova_marcacao["includedAt"] is None:
         retorno = [{'message': 'Erro: a data da marcação ''includedAt'' não foi informada.'}]
         return jsonify(retorno), 500
-    elif nova_marcacao["employeeId"] == 'null':
+    elif nova_marcacao["employeeId"] is None:
         retorno = [{'message': 'Erro: a empresa origem ''employeeId'' não foi informada.'}]
         return jsonify(retorno), 500
-    elif nova_marcacao["employerId"] == 'null':
+    elif nova_marcacao["employerId"] is None:
         retorno = [{'message': 'Erro: o colaborador ''employerId'' não foi informada.'}]
         return jsonify(retorno), 500
     else:

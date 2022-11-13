@@ -55,7 +55,10 @@
                 method: 'get'}).then(response => response.json());
                 console.log(response);
                 
-                $('#table').remove();
+                var table = document.querySelector("#table");
+                var tr = document.querySelector("#table tr");
+
+                table.removeChild(tr);
 
                 var html = "<tr>";
                 for(var i=0;i< response.length; i++){

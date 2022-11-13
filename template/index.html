@@ -79,33 +79,33 @@
                             "employerId": 1}`
                         }).then((data) =>{
                             console.log(data);
-                        }).then(response => {
-                            if(response?.ok){
-                                var vmesDescricao = "";
-        
-                                if(vmes = 1){vMesDescricao = "Janeiro";}
-                                if(vmes = 2){vMesDescricao = "Fevereiro";}
-                                if(vmes = 3){vMesDescricao = "Março";}
-                                if(vmes = 4){vMesDescricao = "Abril";}
-                                if(vmes = 5){vMesDescricao = "Maio";}
-                                if(vmes = 6){vMesDescricao = "Junho";}
-                                if(vmes = 7){vMesDescricao = "Julho";}
-                                if(vmes = 8){vMesDescricao = "Agosto";}
-                                if(vmes = 9){vMesDescricao = "Setembro";}
-                                if(vmes = 10){vMesDescricao = "Outubro";}
-                                if(vmes = 11){vMesDescricao = "Novembro";}
-                                if(vmes = 12){vMesDescricao = "Dezembro";}
+                        }).then(response => response.json());
+                        
+                        if(response[0]?.message == null){
+                            if(vmes = 1){vMesDescricao = "Janeiro";}
+                            if(vmes = 2){vMesDescricao = "Fevereiro";}
+                            if(vmes = 3){vMesDescricao = "Março";}
+                            if(vmes = 4){vMesDescricao = "Abril";}
+                            if(vmes = 5){vMesDescricao = "Maio";}
+                            if(vmes = 6){vMesDescricao = "Junho";}
+                            if(vmes = 7){vMesDescricao = "Julho";}
+                            if(vmes = 8){vMesDescricao = "Agosto";}
+                            if(vmes = 9){vMesDescricao = "Setembro";}
+                            if(vmes = 10){vMesDescricao = "Outubro";}
+                            if(vmes = 11){vMesDescricao = "Novembro";}
+                            if(vmes = 12){vMesDescricao = "Dezembro";}
 
-                            
-                                dataFormat = vdia + " de " + vMesDescricao + " de " + vano;
-                                horaFormat = vhora + ":" + vminuto + ":" + vsegundo;
-                                swal('Marcação realizada com sucesso!', `${dataFormat} ${horaFormat}`, 'success');
-                                
-                            } else {
-                                console.log(response.json());
-                                swal(response?.[0]?.message, 'error');
-                            }
-                        });
+                        
+                            dataFormat = vdia + " de " + vMesDescricao + " de " + vano;
+                            horaFormat = vhora + ":" + vminuto + ":" + vsegundo;
+                            swal('Marcação realizada com sucesso!', `${dataFormat} ${horaFormat}`, 'success');
+                        } else {
+                            console.log(response.json());
+                            swal(response?.[0]?.message, 'error');
+                        }
+
+
+                        
                     } catch(err) {
                         console.error(`Error: ${err}`);
                         swal(`Erro ocorrido: ${err}`, 'error');

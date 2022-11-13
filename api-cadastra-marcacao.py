@@ -13,10 +13,6 @@ def pagina_inicial():
 @app.route('/marcacao', methods=['POST'])
 def inlcuir_marcacao():
     nova_marcacao = request.get_json()
-    
-    print(nova_marcacao["includedAt"])
-    print(nova_marcacao["employeeId"])
-    print(nova_marcacao["employerId"])
 
     parametros = pika.URLParameters(rabbitmq_server["url_connection"])
     connection = pika.BlockingConnection(parametros)
@@ -32,7 +28,9 @@ def inlcuir_marcacao():
 
     retorno = [
         {
-            'message': 'success'
+            'includedAt': nova_marcacao["includedAt"],
+            'employeeId': nova_marcacao["employeeId"],
+            'employerId': nova_marcacao["employerId"]
         }
     ]
 

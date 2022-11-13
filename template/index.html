@@ -77,7 +77,9 @@
                             "includedAt":"${dataFormat} ${horaFormat}", 
                             "employeeId": null, 
                             "employerId": 1}`
-                        }).then(response => response.json());
+                        }).then((data) =>{
+                            console.log(data);
+                        });
 
                         var vmesDescricao = "";
         
@@ -94,10 +96,7 @@
                         if(vmes = 11){vMesDescricao = "Novembro";}
                         if(vmes = 12){vMesDescricao = "Dezembro";}
 
-                        var responseJson = response.json();
-
-
-                        console.error(responseJson['message']);
+                        var errorResponse = response['message'];
 
                         if(errorResponse != null){
                             swal(response['message'], 'error');

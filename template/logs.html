@@ -63,7 +63,7 @@
                 console.log('Linhas response: ' + responseLength)
                 console.log('Linhas table' + tableLength)
                 if(responseLength > 0){
-                    if(responseLength != tableLength){
+                    if((responseLength != tableLength) & (responseLength > tableLength)){
                         for(var i = 0; i < table.rows.length; i++){
                             table.deleteRow(i);
                         }
@@ -84,7 +84,7 @@
             }
 
             
-			setTimeout("atualizaLogs()",500);
+			setTimeout("atualizaLogs()",5000);
 		}
 	</script>	
 </HTML>

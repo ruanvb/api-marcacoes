@@ -65,20 +65,19 @@
                 console.log('Linhas response: ' + responseLength)
                 console.log('Linhas table: ' + tableLength)
 
-                if(responseLength > 0){
-                    if((responseLength != tableLength) & (responseLength > tableLength)){
-                        for(var i = 0; i < tableLength; i++){
-                            table.deleteRow(i);
-                        }
-                        var html = "<tr>";
-                        for(var i=0;i< response.length; i++){
-                            html +="<td>Payload: " + response[i]?.body[0].includedAt + "</td>";
-                            html +="<td>Resultado: " + response[i]?.result + "</td>";
-                            html +="</tr>";
-                            $('table').append(html);
-                        }
-                    }  
-                }   
+                
+                for(var i = 0; i < tableLength; i++){
+                    table.deleteRow(i);
+                }
+                
+                var html = "<tr>";
+                for(var i=0;i< response.length; i++){
+                    html +="<td>Payload: " + response[i]?.body[0].includedAt + "</td>";
+                    html +="<td>Resultado: " + response[i]?.result + "</td>";
+                    html +="</tr>";
+                    $('table').append(html);
+                }
+      
 
             } catch(err) {
                 console.error(`Error: ${err}`);

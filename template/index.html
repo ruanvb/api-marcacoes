@@ -77,10 +77,9 @@
                             "includedAt":"${dataFormat} ${horaFormat}", 
                             "employeeId": null, 
                             "employerId": 1}`
-                        }).then((data) =>{
-                            console.log(data);
                         }).then(response => response.json());
                         
+                        console.log(response);
                         if(response[0]?.message == null){
                             if(vmes = 1){vMesDescricao = "Janeiro";}
                             if(vmes = 2){vMesDescricao = "Fevereiro";}
@@ -100,8 +99,8 @@
                             horaFormat = vhora + ":" + vminuto + ":" + vsegundo;
                             swal('Marcação realizada com sucesso!', `${dataFormat} ${horaFormat}`, 'success');
                         } else {
-                            console.log(response.json());
-                            swal(response?.[0]?.message, 'error');
+                            console.log(response);
+                            swal(response[0]?.message, 'error');
                         }
 
 

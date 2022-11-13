@@ -43,8 +43,8 @@
 	</HEAD>
 	<BODY style="padding: 15px; border: 1px solid #ccc; border-radius: 0!important;">
     <h1>Logs RabbitMQ</h1>
-    <table id="#table">
-        <tbody>
+    <table>
+        <tbody id="#tbody">
             <tr></tr>
         </tbody>
     </table>
@@ -57,10 +57,7 @@
                 method: 'get'}).then(response => response.json());
                 console.log(response);
                 
-                var table = document.querySelector("#table");
-                var tbody = document.querySelector("#table tbody");    
-                
-                table.removeChild(tbody);
+                $('#tbody').remove();
 
                 var html = "<tr>";
                 for(var i=0;i< response.length; i++){

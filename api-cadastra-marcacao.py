@@ -17,7 +17,7 @@ def pagina_inicial():
 def pagina_logs():
     return render_template('logs.html')
 
-@app.route('CarregaLogRabbit', methods=['GET'])
+@app.route('/CarregaLogRabbit', methods=['GET'])
 def carregar_log():
     return jsonify(logs)
 

@@ -11,11 +11,11 @@ Atualmente a API está hospedada em um servidor gratuito.
 ## EndPoints disponíveis
 * ./ - Marcação de Ponto Web
 * ./marcacao - POST - Cadastra marcacação na fila do RabbitMQ
- - - Paylod de exemplo:
+    - Payload de exemplo:
 
 ```json
 {"includedAt":"2021-03-15 15:10:00", "employeeId": 123, "employerId": 999} 
 ```
 
 ## Testes
-O testes da API pode ser realizado diretamente pela Marcação de Ponto Web, entretanto, caso achar viável, poderá ser realizado testes via aplicativo Postman.
+O testes da API pode, ser realizado diretamente pela Marcação de Ponto Web, entretanto, caso achar viável, poderá ser realizado testes via aplicativo Postman.

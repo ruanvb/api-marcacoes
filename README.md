@@ -20,6 +20,6 @@ O arquivo config.py carrega as configurações para a execução.
 ```
 
 ## Testes
-O testes da API pode, ser realizado diretamente pela Marcação de Ponto Web, entretanto, caso achar viável, poderá ser realizado testes via aplicativo Postman.
+O testes da API podem ser realizados diretamente pela Marcação de Ponto Web, entretanto, caso achar viável, poderá ser realizado testes via aplicativo Postman.
 
 ![](images/CPT2211131942-895x765.gif)
